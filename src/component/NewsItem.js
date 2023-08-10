@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 export default class NewsItem extends Component {
   render() {
-    let { title, description } = this.props;
+    let { title, description, imageUrl } = this.props;
     return (
       <>
         <div className="card container my-3" style={{ width: "18rem" }}>
           <img
-            className="card-img-top"
-            src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1219926_1296x729.jpg"
+            className="card-img-top my-2"
+            src={imageUrl}
             alt=""
           />
           <div className="card-body">
