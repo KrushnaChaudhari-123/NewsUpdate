@@ -4,7 +4,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand" href="/">
             <div className="mx-3">News Update</div>
           </a>
@@ -21,12 +21,34 @@ export default class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-item nav-link active" href="/home">
+              <a className="nav-item nav-link " href="/home">
                 Home
               </a>
               <a className="nav-item nav-link" href="/about">
                 About
               </a>
+              <a className="nav-item nav-link " href="/home">
+                Business
+              </a>
+              <a className="nav-item nav-link " href="/home">
+                Entertainment
+              </a>
+              <a className="nav-item nav-link " href="/home">
+                General
+              </a>
+              <a className="nav-item nav-link " href="/home">
+                Health
+              </a>
+              <a className="nav-item nav-link " href="/home">
+                Science
+              </a>
+              <a className="nav-item nav-link " href="/home">
+                Sports
+              </a>
+              <a className="nav-item nav-link " href="/home">
+                Technology
+              </a>
+              
             </div>
           </div>
         </nav>
