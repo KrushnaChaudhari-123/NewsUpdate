@@ -35,7 +35,7 @@ export default class News extends Component {
       loading: false,
     });
   }
-
+ 
   handleNext = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=72af4f79794b40d5937a59aa7f0dbddb&page=${
       this.state.page + 1
@@ -85,6 +85,8 @@ export default class News extends Component {
                       }
                       imageUrl={element.urlToImage}
                       newsUrl={element.url}
+                      author={element.author}
+                      date = {element.publishedAt}
                     />
                   </div>
                 );
