@@ -23,9 +23,9 @@ export default class News extends Component {
       loading: false,
     };
   }
-  //async and await is used with componentDidMount() method to fetch api results
-  async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=72af4f79794b40d5937a59aa7f0dbddb&page=1&pagesize=${this.props.pageSize}`;
+
+  async updateNews(){
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=72af4f79794b40d5937a59aa7f0dbddb&page=${this.state.page}&pagesize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -35,33 +35,23 @@ export default class News extends Component {
       loading: false,
     });
   }
+  //async and await is used with componentDidMount() method to fetch api results
+  async componentDidMount() {
+   this.updateNews()
+  }
  
   handleNext = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=72af4f79794b40d5937a59aa7f0dbddb&page=${
-      this.state.page + 1
-    }&pagesize=${this.props.pageSize}`;
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parsedData = await data.json();
     this.setState({
-      article: parsedData.articles,
-      page: this.state.page + 1,
-      loading: false,
-    });
+      page: this.state.page+1
+    })
+    this.updateNews()
   };
 
   handlePrev = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=72af4f79794b40d5937a59aa7f0dbddb&page=${
-      this.state.page - 1
-    }&pagesize=${this.props.pageSize}`;
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parsedData = await data.json();
     this.setState({
-      article: parsedData.articles,
-      page: this.state.page - 1,
-      loading: false,
-    });
+      page: this.state.page-1
+    })
+    this.updateNews()
   };
 
   render() {
