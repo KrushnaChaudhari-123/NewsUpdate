@@ -78,10 +78,10 @@ export default class News extends Component {
     return (
       <>
       
-        <h2 className="text-center my-3">
+        <h2 className="text-center" style={{marginTop:"65px"}}>
           News Update - {this.capitalize(this.props.category)} Headlines
         </h2>
-        {/* {this.state.loading && <Spinner />} */}
+        {this.state.loading && <Spinner />}
         <InfiniteScroll
           dataLength={this.state.articles.length}
           next={this.fetchMoreData}
